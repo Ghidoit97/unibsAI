@@ -14,6 +14,16 @@ public class Titolo {
 		valore=nuovoValore;
 	}
 	
+	public String getNome()
+	{
+		return nome;
+	}
+	
+	public double getValore()
+	{
+		return valore;
+	}
+	
 	public String toString(){
 		return String.format(VALORE_TITOLO, nome, valore);
 	}
