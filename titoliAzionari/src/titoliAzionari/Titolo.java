@@ -4,7 +4,7 @@ public class Titolo {
 	
 	private String nome;
 	private double valore;
-	
+	private final String VALORE_TITOLO="Il valore del titolo %s è %d";
 	public Titolo(String _nome, double _valore){
 		nome=_nome;
 		valore=_valore;
@@ -15,6 +15,6 @@ public class Titolo {
 	}
 	
 	public String toString(){
-		return "Nome Titolo: "+nome+"\tValore:"+valore;
+		return String.format(VALORE_TITOLO, nome, valore);
 	}
 }
