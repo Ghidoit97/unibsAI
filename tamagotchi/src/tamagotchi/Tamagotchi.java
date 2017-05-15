@@ -2,10 +2,10 @@ package tamagotchi;
 import mylib.*;
 /**
  * La classe Tamagotchi descrive un oggetto di tipo Tamagotchi , 
- * un entità software che è in grado di recepire stimoli esterni ,
+ * un entitï¿½ software che ï¿½ in grado di recepire stimoli esterni ,
  * i quali determinano la sua sopravvivenza e il suo grado di benessere .
  * La classe modifica questi valori in base agli input dell'utente e
- * stabilisce se il tamagotchi è felice , triste o morto.
+ * stabilisce se il tamagotchi ï¿½ felice , triste o morto.
  * @author Federico Mitelli
  * @author Fabio Ghidini
  */
@@ -19,7 +19,7 @@ public class Tamagotchi {
 							   SOGLIA_SAZ_BASSA=30,
 							   SOGLIA_SAZ_ALTA=90;
 	
-	private final static String DESCRIZIONE="Ciao ,sono %s%nIl mio grado di sazieta'  : %1.2f%nIl mio grado di soddisfazione affettiva : %1.2f%n",
+	private final static String DESCRIZIONE="Ciao ,sono %s%nIl mio grado di sazieta' : %1.2f%nIl mio grado di soddisfazione affettiva : %1.2f%n",
 								MESS_MORTO="Sono morto",
 								MESS_INFELICE="Sono infelice",
 								MESS_FELICE="Sono felice";
@@ -27,7 +27,7 @@ public class Tamagotchi {
 	 * Attributi :
 	 * -{@link nome}			nome del tamagotchi 	
 	 * -{@link soddisfazione}	livello di soddisfazione del tamagotchi
-	 * -{@link sazieta}			livello di sazietá del tamagotchi
+	 * -{@link sazieta}			livello di sazietï¿½ del tamagotchi
 	 * 
 	 */
 	private String nome;
@@ -37,7 +37,7 @@ public class Tamagotchi {
 	 * Inizializza i valori iniziali degli attributi 
 	 * @param _nome 		nome del tamagotchi
 	 * @param _sodd			grado iniziale di soddisfazione
-	 * @param _sazieta		grado iniziale di sazietá
+	 * @param _sazieta		grado iniziale di sazietï¿½
 	 */
 	public Tamagotchi(String _nome,double _sodd,double _sazieta){
 		nome=_nome;
@@ -59,14 +59,14 @@ public class Tamagotchi {
 	}
 	
 	/**
-	 * Controlla se la soddisfazione è tra i parametri vitali del tamagotchi
-	 * se sì , somma il numero di carezze ricevute alla soddisfazione.
+	 * Controlla se la soddisfazione ï¿½ tra i parametri vitali del tamagotchi
+	 * se sï¿½ , somma il numero di carezze ricevute alla soddisfazione.
 	 * Se dopo aver sommato la soddisfazione supera il livello massimo di soddisfazione(MAX_SODD)
-	 * la riporta al livello massimo, mentre se è minore del livello minimo di soddisfazione(MIN_SODD)
+	 * la riporta al livello massimo, mentre se ï¿½ minore del livello minimo di soddisfazione(MIN_SODD)
 	 * la riporta la livello minimo.
-	 * Sottrae al livello di sazietà la meta delle carezze ricevute.
-	 * Controlla se il livello di sazietà è sceso sotto il livello minimo di sazietà(MIN_SODD),
-	 * se è così lo riporta al livello minimo di sazietà
+	 * Sottrae al livello di sazietï¿½ la meta delle carezze ricevute.
+	 * Controlla se il livello di sazietï¿½ ï¿½ sceso sotto il livello minimo di sazietï¿½(MIN_SODD),
+	 * se ï¿½ cosï¿½ lo riporta al livello minimo di sazietï¿½
 	 * 
 	 * @param nCarezze numero di carezze ricevute
 	 */
@@ -87,12 +87,12 @@ public class Tamagotchi {
 	}
 	
 	/**
-	 * Controlla se il grado  di sazietà è minore del livello massimo di sazietà(MAX_SAZIETA).
-	 * Se vero per ogni biscotto ricevuto il grado di sazietà aumenta del 10% .
-	 * Controlla se il grado di sazietà è maggiore del livello massimo di sazietà .
-	 * Se vero riporta il grado di sazietà al livello massimo di sazietà .
+	 * Controlla se il grado  di sazietï¿½ ï¿½ minore del livello massimo di sazietï¿½(MAX_SAZIETA).
+	 * Se vero per ogni biscotto ricevuto il grado di sazietï¿½ aumenta del 10% .
+	 * Controlla se il grado di sazietï¿½ ï¿½ maggiore del livello massimo di sazietï¿½ .
+	 * Se vero riporta il grado di sazietï¿½ al livello massimo di sazietï¿½ .
 	 * Sottrae al grado di soddisfazione un quarto del numero di biscotti ricevuti e
-	 * controlla se il grado di soddisfazione è minore del livello minimo di soddisfazione(MIN_SODD)
+	 * controlla se il grado di soddisfazione ï¿½ minore del livello minimo di soddisfazione(MIN_SODD)
 	 * se  vero la riporta la livello minimo.
 	 * 
 	 * @param nBiscotti numero di biscotti ricevuti
@@ -116,11 +116,11 @@ public class Tamagotchi {
 	}
 	
 	/**
-	 * Controlla se il tamagotchi è triste.
-	 * Se la soddisfazione è maggiore della soglia bassa di soddisfazione e la sazieta è compresa 
-	 * tra i valori di sazietà che assicurano benessere allora
+	 * Controlla se il tamagotchi ï¿½ triste.
+	 * Se la soddisfazione ï¿½ maggiore della soglia bassa di soddisfazione e la sazieta ï¿½ compresa 
+	 * tra i valori di sazietï¿½ che assicurano benessere allora
 	 * @return false
-	 * invece se il controllo è stato negativo 
+	 * invece se il controllo ï¿½ stato negativo 
 	 * @return true
 	 */
 	public boolean sonoTriste(){
@@ -131,7 +131,7 @@ public class Tamagotchi {
 	
 	/**
 	 * Controlla se i valori di :
-	 * sazietà , se corrispondono al suo massimo o al suo minimo 
+	 * sazietï¿½ , se corrispondono al suo massimo o al suo minimo 
 	 * o
 	 * soddisfazione , se corrisponde al suo minimo
 	 * se vero
@@ -147,8 +147,8 @@ public class Tamagotchi {
 	
 	/**
 	 * Crea un messaggio di tipo String che contiene gli attributi del tamagotchi e 
-	 * i loro valori e controlla se è morto {@link #sonoMorto()} , o se
-	 * è triste {@link #sonoTriste()} ed in ogni caso genera un messaggio adeguato
+	 * i loro valori e controlla se ï¿½ morto {@link #sonoMorto()} , o se
+	 * ï¿½ triste {@link #sonoTriste()} ed in ogni caso genera un messaggio adeguato
 	 * allo stato del tamagotchi.
 	 * 
 	 * @return msg.toString() messaggio che descrive il tamagotchi
