@@ -24,7 +24,7 @@ public class TamaGordo extends Tamagotchi{
 	
 	public boolean sonoMorto ()
 	{
-		return getGradoAffettivo() == 0 || getGradoSazieta() == 0 || getGradoSazieta() == MAX_SAZIETA; 
+		return getGradoSazieta() == 0;
 	}
 	
 	public boolean sonoTriste ()
