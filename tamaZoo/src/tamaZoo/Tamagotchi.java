@@ -11,9 +11,9 @@ public class Tamagotchi {
 	public final static int SOGLIA_SAZIETA_BASSA = 30;
 	public final static int SOGLIA_SAZIETA_ALTA = 90;
 	
-	private final double FATTORE_CAREZZE = 2;
-	private final double FATTORE_BISCOTTI = 4;
-	private final double INCREMENTO_BISCOTTO = 1.1;
+	protected final double FATTORE_CAREZZE = 2;
+	protected final double FATTORE_BISCOTTI = 4;
+	protected final double INCREMENTO_BISCOTTO = 1.1;
 	
 	private final static String DESCRIZIONE = "Sono %s%nIl mio grado di saziet� � %1.2f%nIl mio grado di soddisfazione affettiva � %1.2f";
 	private final static String MESS_DEAD = "\nAttenzione sono violate le condizioni per la mia sopravvivenza! Addio!";
@@ -23,15 +23,45 @@ public class Tamagotchi {
     private String nome;
 	private double gradoAffettivo;
 	private double gradoSazieta;
+	private String nomeTipo;
 	
-	public Tamagotchi (String nome, int gradoAffettivo, int gradoSazieta)
+	public Tamagotchi (String nome, int gradoAffettivo, int gradoSazieta, String nomeTipo)
 	{
 		this.nome=nome;
 		this.gradoAffettivo=gradoAffettivo;
 		this.gradoSazieta=gradoSazieta;
+		this.nomeTipo=nomeTipo;
 	}
 	
-		
+	public String getNome(){
+		return nome;
+	}
+	
+	public void setNome(String _nome)
+	{
+		this.nome=_nome;
+	}
+	
+	public double getGradoAffettivo()
+	{
+		return gradoAffettivo;
+	}
+	
+	public void setGradoAffettivo(double _gradoAffettivo)
+	{
+		gradoAffettivo=_gradoAffettivo;
+	}
+	
+	public double getGradoSazieta()
+	{
+		return gradoSazieta;
+	}
+	
+	public void setGradoSazieta(double _gradoSazieta)
+	{
+		gradoSazieta=_gradoSazieta;
+	}
+	
 	public void riceviCarezze(int numCarezze)
 	{
 		gradoAffettivo=Math.min(gradoAffettivo+numCarezze,MAX_AFFETTO);
