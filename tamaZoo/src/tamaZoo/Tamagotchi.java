@@ -89,15 +89,15 @@ public class Tamagotchi {
 	
 	public String toString()
 	{
-		StringBuffer result = new StringBuffer();
-		result.append(String.format(DESCRIZIONE, nome, gradoSazieta, gradoAffettivo));
+		StringBuffer msg = new StringBuffer();
+		msg.append(String.format(DESCRIZIONE, nome, gradoSazieta, gradoAffettivo));
 		if (sonoMorto())
-			result.append(MESS_DEAD);
+			msg.append(MESS_DEAD);
 		else 
 		 if (sonoTriste())
-		   result.append(MESS_SAD);
+		   msg.append(MESS_SAD);
 		
-		return result.toString(); 
+		return msg.toString(); 
 		
 	}
 }
