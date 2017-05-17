@@ -22,7 +22,7 @@ public class Portafoglio {
 		composizione.add(lotto);
 	}
 	
-	 public double valore()
+	 public double valoreTotale()
 		{
 		 // da completare per effettuare simulazione
 		}
@@ -38,7 +38,7 @@ public class Portafoglio {
 			msg.append(composizione.get(i).toString() + "\n");
 		}
 		
-		msg.append(String.format(DESCR_TOTALE, valore()));
+		msg.append(String.format(DESCR_TOTALE, valoreTotale()));
 		
 		return msg.toString();
 	

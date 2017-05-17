@@ -10,7 +10,7 @@ public class LottoPosseduto {
 	}
 	
 	public double valore(){
-		// da completare
+		//da completare
 	}
 	
 	public String toString()
