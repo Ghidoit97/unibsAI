@@ -22,45 +22,45 @@ public class Tamagotchi {
 	
     private String nome;
 	private double gradoAffettivo;
-	private double gradoSaziet�;
+	private double gradoSazieta;
 	
-	public Tamagotchi (String nome, int gradoAffettivo, int gradoSaziet�)
+	public Tamagotchi (String nome, int gradoAffettivo, int gradoSazieta)
 	{
 		this.nome=nome;
 		this.gradoAffettivo=gradoAffettivo;
-		this.gradoSaziet�=gradoSaziet�;
+		this.gradoSazieta=gradoSazieta;
 	}
 	
 		
 	public void riceviCarezze(int numCarezze)
 	{
 		gradoAffettivo=Math.min(gradoAffettivo+numCarezze,MAX_AFFETTO);
-		gradoSaziet� = Math.max(0, gradoSaziet� - numCarezze/FATTORE_CAREZZE);
+		gradoSazieta = Math.max(0, gradoSazieta - numCarezze/FATTORE_CAREZZE);
 	}
 	
 	public void riceviBiscotti(int numBiscotti)
 	{
 		for (int i = 1; i <= numBiscotti; i++)
 		{
-		 gradoSaziet�=Math.min(gradoSaziet�*INCREMENTO_BISCOTTO,MAX_SAZIETA);
+		 gradoSazieta=Math.min(gradoSazieta*INCREMENTO_BISCOTTO,MAX_SAZIETA);
 		}
 		gradoAffettivo = Math.max(0, gradoAffettivo - numBiscotti/FATTORE_BISCOTTI);
 	}
 	
 	public boolean sonoMorto ()
 	{
-		return gradoAffettivo == 0 || gradoSaziet� == 0 || gradoSaziet� == MAX_SAZIETA; 
+		return gradoAffettivo == 0 || gradoSazieta == 0 || gradoSazieta == MAX_SAZIETA; 
 	}
 	
 	public boolean sonoTriste ()
 	{
-		return gradoAffettivo < SOGLIA_AFFETTO_BASSO || gradoSaziet� < SOGLIA_SAZIETA_BASSA || gradoSaziet� > SOGLIA_SAZIETA_ALTA; 
+		return gradoAffettivo < SOGLIA_AFFETTO_BASSO || gradoSazieta < SOGLIA_SAZIETA_BASSA || gradoSazieta > SOGLIA_SAZIETA_ALTA; 
 	}
 	
 	public String toString()
 	{
 		StringBuffer result = new StringBuffer();
-		result.append(String.format(DESCRIZIONE, nome, gradoSaziet�, gradoAffettivo));
+		result.append(String.format(DESCRIZIONE, nome, gradoSazieta, gradoAffettivo));
 		if (sonoMorto())
 			result.append(MESS_DEAD);
 		else 
