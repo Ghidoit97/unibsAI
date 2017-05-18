@@ -15,7 +15,7 @@ public class Tamagotchi {
 	protected final double FATTORE_BISCOTTI = 4;
 	protected final double INCREMENTO_BISCOTTO = 1.1;
 	
-	private final static String DESCRIZIONE = "Sono %s%nIl mio grado di saziet� � %1.2f%nIl mio grado di soddisfazione affettiva � %1.2f";
+	private final static String DESCRIZIONE = "Sono %s%nIl mio grado di sazieta e' %1.2f%nIl mio grado di soddisfazione affettiva e' %1.2f";
 	private final static String MESS_DEAD = "\nAttenzione sono violate le condizioni per la mia sopravvivenza! Addio!";
 	private final static String MESS_SAD = "\nAttenzione sono infelice!";
 	
