@@ -18,7 +18,10 @@ public class ElencoTitoli {
 	
 	public String toString()
 	{
-		return elenco.toString();
+		StringBuffer msg=new StringBuffer();
+		for(Titolo lista: elenco)
+			msg.append(lista.toString());
+		return msg.toString();
 	}
 	
 	public void variazione()

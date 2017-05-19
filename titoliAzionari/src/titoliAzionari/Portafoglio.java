@@ -5,23 +5,26 @@ public class Portafoglio {
 	
 	private String nome;
 	private ElencoTitoli elenco;
-	private Vector<Lotto> gruppo;
+	private Vector<Lotto> lotto;
 	
 	public Portafoglio(String nome,ElencoTitoli elenco)
 	{
 		this.nome=nome;
 		this.elenco=elenco;
-		gruppo=new Vector<Lotto>();
+		lotto=new Vector<Lotto>();
 	}
 	
 	public void inserisci(Lotto daInserire)
 	{
-		gruppo.add(daInserire);
+		lotto.add(daInserire);
 	}
 	
 	public String toString()
 	{
-		return gruppo.toString();
+		StringBuffer msg=new StringBuffer();
+		for(Lotto gruppo: lotto)
+			msg.append(gruppo.toString());
+		return msg.toString();
 	}
 	
 	public void variazione()
