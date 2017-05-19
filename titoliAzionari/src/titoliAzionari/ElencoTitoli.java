@@ -26,7 +26,7 @@ public class ElencoTitoli {
 	
 	public void variazione()
 	{
-		for(Titolo lista:elenco)
+		for(Titolo lista: elenco)
 		{
 			lista.variazione();
 		}

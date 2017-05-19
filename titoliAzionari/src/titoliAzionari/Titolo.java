@@ -1,9 +1,11 @@
 package titoliAzionari;
 
-import mylib.EstrazioniCasuali;
+import mylib.NumeriCasuali;
 
 public class Titolo {
 	
+	private final static double MAX_RIALZO=+30.0/100.0;
+	private final static double MAX_RIBASSO=-30.0/100.0;
 	private final static String DESCRIZIONE="titolo: %s %t Valore: %.2f %n";
 	
 	private String nome;
@@ -15,6 +17,11 @@ public class Titolo {
 		this.valore=valore;
 	}
 	
+	public double getValore()
+	{
+		return valore;
+	}
+	
 	public String toString()
 	{
 		return String.format(DESCRIZIONE,nome,valore);
@@ -22,7 +29,7 @@ public class Titolo {
 	
 	public void variazione()
 	{
-		double varia=EstrazioniCasuali.estraiIntero(-100,100);
-		valore=valore*(100+varia)/100;
+		double varia=NumeriCasuali.estraiDouble(MAX_RIBASSO, MAX_RIALZO);
+		valore=valore+(valore*varia);
 	}
 }

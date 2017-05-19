@@ -13,6 +13,11 @@ public class Lotto {
 		this.quantita=quantita;
 	}
 	
+	public double getValore()
+	{
+		return quantita*riferimento.getValore();
+	}
+	
 	public String toString()
 	{
 		return String.format(DESCRIZIONE,riferimento.toString(),quantita);
