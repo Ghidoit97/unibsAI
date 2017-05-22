@@ -1,5 +1,5 @@
 package titoliAzionari;
 
-public class Composizione {
+public class Contenitore {
 
 }
