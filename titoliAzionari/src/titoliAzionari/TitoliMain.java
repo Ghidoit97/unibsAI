@@ -4,7 +4,7 @@ import java.util.*;
 import mylib.MyMenu;
 import mylib.InputDati;
 
-public class titoliMain {
+public class TitoliMain {
 
 	private final static String BENVENUTO="PROGRAMMA TIOLI AZIONARI";
 	private final static String SCELTA="Inserisci il numero dell'azione che vuoi eseguire: ";
@@ -18,20 +18,14 @@ public class titoliMain {
 	
 	public static void main(String[] args) {
 		System.out.println(BENVENUTO);
-		String nomePortafoglio=InputDati.leggiStringaNonVuota(INS_PORTAFOGLIO);
-		Portafoglio wallet=creaPortafolio();
+		
 		MyMenu menu=new MyMenu(SCELTA,VOCI);
 		int voceSelezionata=menu.scegli();
 		switch(voceSelezionata)
 		{
 		case 1: 
-			if()
+			
 		}
 	}
 	
-	public static Portafoglio creaPortaFoglio()
-	{
-		Portafoglio wallet=null;
-		
-	}
 }

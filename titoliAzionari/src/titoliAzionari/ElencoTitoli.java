@@ -11,6 +11,16 @@ public class ElencoTitoli {
 		elenco=new Vector<Titolo>();
 	}
 	
+	public int getNumTitoli()
+	{
+		return elenco.size();
+	}
+	
+	public Titolo getTitolo(int num)
+	{
+		return elenco.get(num);
+	}
+	
 	public void inserisci(Titolo daInserire)
 	{
 		elenco.add(daInserire);
