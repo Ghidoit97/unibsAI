@@ -1,31 +1,78 @@
 package titoliAzionari;
 
 import java.util.*;
-import mylib.MyMenu;
+import mylib.ServizioFile;
 import mylib.InputDati;
+import java.io.*;
 
-public class TitoliMain {
+public class TitoliMain implements Serializable{
 
-	private final static String BENVENUTO="PROGRAMMA TIOLI AZIONARI";
-	private final static String SCELTA="Inserisci il numero dell'azione che vuoi eseguire: ";
-	private final static String [] VOCI={"Visualizza portafoglio","Inserisci titolo","Visualizza variazione", "Visualizza valore totale"};
-	private final static String INS_PORTAFOGLIO="Inserisci il nome del portafoglio: ";
-	private final static String INS_NOME="Inserisci il nome tiolo: ";
-	private final static String INS_PREZZO="Inserisci il valore della singola azione: ";
-	private final static String INS_QUANTITA="Inserisci il umero di azioni: ";
-	private final static String VARIAZIONE="In seguito alle variazioni il valore del portafoglio è il seguente: %.2f";
-	private final static String VUOTO="Non esiste nessun titolo nel portafoglio";
+	final private static String NOMEFILETITOLI = "archiviotitoli.dat";
+	final private static String MSG_NO_CAST = "ATTENZIONE PROBLEMI CON IL CAST";
+	final private static String MSG_OK_FILE = "CARICAMENTO DA FILE EFFETTUATO";
+	final private static String MSG_NO_FILE = "NON POSSO CARICARE DA FILE: ESEGUO CREAZIONE DA ZERO";
+	final private static String MSG_INTRO_PORTFOLIO = "SITUAZIONE PORTAFOGLIO";
+	final private static String MSG_PROCEDI = "PROCEDERE CON LA SIMULAZIONE ?";
+	final private static String MSG_SALVA = "SALVATAGGIO DATI";
+	final private static String MSG_SALUTO = "GRAZIE PER AVER USATO IL NOSTRO PROGRAMMA";
+	final private static String MSG_INTRO_GIORNO = "GIORNO N.%d NUOVA SITUAZIONE INVESTIMENTI";
 	
 	public static void main(String[] args) {
-		System.out.println(BENVENUTO);
-		
-		MyMenu menu=new MyMenu(SCELTA,VOCI);
-		int voceSelezionata=menu.scegli();
-		switch(voceSelezionata)
-		{
-		case 1: 
+		File fTitoli = new File(NOMEFILETITOLI);
+		  
+		Portafoglio patrimonio = null;
+		  
+		ElencoTitoli listaTitoli = null;
+		  
+		Contenitore container = null;
 			
+		boolean caricamentoRiuscito = false;
+			
+		if ( fTitoli.exists() )
+		{
+			try 
+			{
+				container = (Contenitore)ServizioFile.caricaSingoloOggetto(fTitoli);
+				listaTitoli = container.getElencoTitoli();
+				patrimonio = container.getPortafoglio();
+			}
+			catch (ClassCastException e)
+			{
+				System.out.println(MSG_NO_CAST);
+			}
+			finally
+			{
+				if ( (patrimonio != null) && (listaTitoli != null) )
+				{
+					System.out.println(MSG_OK_FILE);
+					caricamentoRiuscito = true;
+				}
+			}	
 		}
+				
+		if (!caricamentoRiuscito)
+		{
+			System.out.println(MSG_NO_FILE);
+			listaTitoli = UtilitaTitoli.creaElencoTitolo();
+			patrimonio = UtilitaTitoli.creaPatrimonio(listaTitoli);
+		}
+				
+			 System.out.println(MSG_INTRO_PORTFOLIO);
+			 System.out.println(patrimonio);
+				
+			 int giorni = 0;
+			 while (InputDati.yesOrNo(MSG_PROCEDI))
+				{
+				 giorni++;
+				 listaTitoli.variazione();
+				 System.out.println(String.format(MSG_INTRO_GIORNO, giorni));
+			 	 System.out.println(patrimonio);
+				}
+				
+				System.out.println(MSG_SALVA);
+				container = new Contenitore(listaTitoli,patrimonio);
+				ServizioFile.salvaSingoloOggetto(fTitoli, container);
+				
+			    System.out.println(MSG_SALUTO);
 	}
-	
 }

@@ -1,8 +1,10 @@
 package titoliAzionari;
 
-public class Lotto {
+import java.io.Serializable;
+
+public class Lotto implements Serializable{
 	
-	private final static String DESCRIZIONE="%d azioni del %s";
+	private final static String DESCRIZIONE="titolo %d azioni del %s\n";
 	
 	private int quantita;
 	private Titolo riferimento;
@@ -20,6 +22,6 @@ public class Lotto {
 	
 	public String toString()
 	{
-		return String.format(DESCRIZIONE,riferimento.toString(),quantita);
+		return String.format(DESCRIZIONE,quantita,riferimento.toString());
 	}
 }

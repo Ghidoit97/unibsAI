@@ -1,6 +1,8 @@
 package titoliAzionari;
 
-public class Contenitore {
+import java.io.Serializable;
+
+public class Contenitore implements Serializable{
 	
 	private ElencoTitoli elencoTitoli;
 	private Portafoglio portafoglio;

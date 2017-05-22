@@ -1,12 +1,14 @@
 package titoliAzionari;
 
+import java.io.Serializable;
+
 import mylib.NumeriCasuali;
 
-public class Titolo {
+public class Titolo implements Serializable{
 	
 	private final static double MAX_RIALZO=+30.0/100.0;
 	private final static double MAX_RIBASSO=-30.0/100.0;
-	private final static String DESCRIZIONE="titolo: %s %t Valore: %.2f %n";
+	private final static String DESCRIZIONE="%s Valore: %.2f";
 	
 	private String nome;
 	private double valore;

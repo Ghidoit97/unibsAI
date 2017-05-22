@@ -1,8 +1,10 @@
 package titoliAzionari;
 
+import java.io.Serializable;
+
 import mylib.InputDati;
 
-public class UtilitaTitoli {
+public class UtilitaTitoli implements Serializable{
 	
 	 private final static String MSG_NOME_TITOLO = "INSERIRE LA DENOMINAZIONE DEL NUOVO TITOLO DA CREARE:";
 	 private final static String MSG_PREZZO_TITOLO = "INSERIRE IL PREZZO INIZIALE DEL TITOLO %s:";

@@ -1,7 +1,8 @@
 package titoliAzionari;
+import java.io.Serializable;
 import java.util.*;
 
-public class Portafoglio {
+public class Portafoglio implements Serializable{
 	
 	private final String DESCRIZIONE="Portafoglio <%s>:%n";
 	
