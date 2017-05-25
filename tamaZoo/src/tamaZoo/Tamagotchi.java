@@ -2,10 +2,10 @@ package tamaZoo;
 
 /**
  * La classe Tamagotchi descrive un oggetto di tipo Tamagotchi , 
- * un entità software che Ë in grado di recepire stimoli esterni ,
+ * un entità software che e` in grado di recepire stimoli esterni ,
  * i quali determinano la sua sopravvivenza e il suo grado di benessere .
  * La classe modifica questi valori in base agli input dell'utente e
- * stabilisce se il tamagotchi Ë felice , triste o morto.
+ * stabilisce se il tamagotchi e` felice , triste o morto.
  * 
  * @author Ghidini Fabio
  * @author Mitelli Federico
@@ -27,6 +27,7 @@ public class Tamagotchi {
 	private final static String DESCRIZIONE = "Sono %s%nIl mio grado di sazieta e' %1.2f%nIl mio grado di soddisfazione affettiva e' %1.2f";
 	private final static String MESS_DEAD = "\nAttenzione sono violate le condizioni per la mia sopravvivenza! Addio!";
 	private final static String MESS_SAD = "\nAttenzione sono infelice!";
+	private final static String ERRORE_ARGOM="Errore: Grado affettivo o grado sazieta' minori di zero";
 	
 	/**
 	 * Attributi :
@@ -49,12 +50,35 @@ public class Tamagotchi {
 	 * @param gradoSazieta		grado iniziale di sazieta
 	 * @param nomeTipo			nome della specie
 	 */
-	public Tamagotchi (String nome, int gradoAffettivo, int gradoSazieta, String nomeTipo)
+	public Tamagotchi (String nome, int gradoAffettivo, int gradoSazieta, String nomeTipo) 
 	{
-		this.nome=nome;
-		this.gradoAffettivo=gradoAffettivo;
-		this.gradoSazieta=gradoSazieta;
-		this.nomeTipo=nomeTipo;
+		if(gradoAffettivo<0 || gradoSazieta<0){
+			throw new IllegalArgumentException(ERRORE_ARGOM);
+		}else{
+			this.nome=nome;
+			this.gradoAffettivo=gradoAffettivo;
+			this.gradoSazieta=gradoSazieta;
+			this.nomeTipo=nomeTipo;
+		}
+	}
+	
+	public Tamagotchi(double sodd ,double saz){
+		if(sodd<0 || saz<0){
+			throw new IllegalArgumentException(ERRORE_ARGOM);
+		}else{
+			this.gradoAffettivo=sodd;
+			this.gradoSazieta=saz;
+		}	
+	}
+	
+	public Tamagotchi(String nome,double sodd ,double saz){
+		if(sodd<0 || saz<0){
+			throw new IllegalArgumentException(ERRORE_ARGOM);
+		}else{	
+			this.nome=nome;
+			this.gradoAffettivo=sodd;
+			this.gradoSazieta=saz;
+		}
 	}
 	
 	public String getNome(){

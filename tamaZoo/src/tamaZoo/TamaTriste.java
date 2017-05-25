@@ -24,6 +24,11 @@ public class TamaTriste extends Tamagotchi{
 		super(nome,0,sazieta,nomeTipo);
 	}
 	
+	public TamaTriste(String nome, int sazieta)
+	{
+		super(nome,0,sazieta);
+	}
+	
 	/**
 	 * Gestisce la variazione del proprio stato in base alle carezze ricevute.
 	 * Modifica solo il grado di sazieta'.

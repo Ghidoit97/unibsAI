@@ -27,6 +27,10 @@ public class TamaGordo extends Tamagotchi{
 		super(nome,MAX_AFFETTO,sazieta,nomeTipo);
 	}
 	
+	public TamaGordo(String nome, int sazieta)
+	{
+		super(nome,MAX_AFFETTO,sazieta);
+	}
 	/**
 	 * Gestisce la variazione del proprio stato in base alle carezze ricevute.
 	 * Modifica solo il grado di sazieta' moltiplicandolo per 2(MULTIPLO_RIDUZIONE.

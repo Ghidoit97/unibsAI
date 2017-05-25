@@ -4,7 +4,7 @@ import mylib.*;
 /**
  * La classe GestoreTamaZoo costituisce il main del progetto,
  * all'interno del quale appare un menu della classe utilita MyMenu
- * che mostra all'utente le azioni che può eseguire.
+ * che mostra all'utente le azioni che puo` eseguire.
  * Si base sulla molteplicità di tamagotchi che possono presentarsi in 3 specie diverse:
  * ingordo, triste o normale, che risponderanno agli stimoli in modi diversi.
  * 
