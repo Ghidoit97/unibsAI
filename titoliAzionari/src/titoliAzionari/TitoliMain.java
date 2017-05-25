@@ -1,13 +1,12 @@
 package titoliAzionari;
 
-import java.util.*;
 import mylib.ServizioFile;
 import mylib.InputDati;
 import java.io.*;
 
 public class TitoliMain implements Serializable{
 
-	final private static String NOMEFILETITOLI = "archiviotitoli.dat";
+	final private static String NOMEFILETITOLI = "archiviotitoli.txt";
 	final private static String MSG_NO_CAST = "ATTENZIONE PROBLEMI CON IL CAST";
 	final private static String MSG_OK_FILE = "CARICAMENTO DA FILE EFFETTUATO";
 	final private static String MSG_NO_FILE = "NON POSSO CARICARE DA FILE: ESEGUO CREAZIONE DA ZERO";
@@ -71,6 +70,7 @@ public class TitoliMain implements Serializable{
 				
 				System.out.println(MSG_SALVA);
 				container = new Contenitore(listaTitoli,patrimonio);
+			
 				ServizioFile.salvaSingoloOggetto(fTitoli, container);
 				
 			    System.out.println(MSG_SALUTO);

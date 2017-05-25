@@ -1,36 +1,61 @@
 package tamaZoo;
 import java.util.*;
 
+/**
+ * La classe TamaZoo si compone di un Vector di Tamagotchi
+ * Permette di inserire nuovi Tamagotchi, di specie diverse
+ * Effettua un controllo per verificare che ci siano ancora sopravvissuti
+ * Permette di effettuare azioni come dare biscotti o carezze
+ * 
+ * @author Ghidini Fabio
+ * @author Mitelli Federico
+ */
 public class TamaZoo 
 {
-  // definire come attributo una struttura dati destinata a contenere i vari Tamagotchi presenti;
   private Vector<Tamagotchi> tama;
+  
+  /**
+   * Inizializza la struttura dati che conterra' i Tamagotchi
+   */
   
   public TamaZoo ()
   {
-	  // inizializzare la struttura dati che conterra' i Tamagotchi
 	  tama=new Vector<Tamagotchi>();
   }
   
+  /**
+   * Effettua l'inserimento di un nuovo Tamagotchi dentro la struttura
+   *  
+   * @param daInserire il tamagotchi da inserire nel vector TamaZoo
+   */
+  
   public void inserisci (Tamagotchi daInserire)
   {
-	  // effettuare l'inserimento di un nuovo Tamagotchi entro la struttura 
 	  tama.add(daInserire);
   }
   
+  /**
+   * Verifica se nello zoo ci sia ancora almeno un tamagotchi vivo
+   * @return true (boolean)		almeno un tamagotchi vivo
+   * @return false (boolean)	nessun tamagotchi vivo
+   */
+  
   public boolean ciSonoVivi ()
   {
-	  // verificare se nello zoo c'e' almeno un Tamagotchi vivo (la classe Tamagotchi offre un metodo utile a tale scopo)
 	  for(Tamagotchi creature: tama)
 		  if(!creature.sonoMorto()) return true;
 	  return false;
   }
   
+  /**
+   * Effettua la somministrazione di biscotti solo ai tamagotchi vivi
+   * Stampa la nuova situazione
+   * 
+   * @param quantiBiscotti	numero di biscotti da somministrare
+   */
+  
   public void daiBiscotti (int quantiBiscotti)
   {
-	  // somministrare il numero di biscotti specificato ai Tamagotchi presenti (la classe Tamagotchi offre un metodo utile a tale scopo)
-		// ovviamente la somministrazione puo' avvenire solo per Tamagotchi vivi
-		// per ogni Tamagotchi si stampa la sua nuova situazione
 	  for(Tamagotchi creature: tama)
 		  if(!creature.sonoMorto())
 		  {
@@ -38,6 +63,13 @@ public class TamaZoo
 			  System.out.println(creature.toString());
 		  }
   }
+  
+  /**
+   * Effettua la somministrazione di carezze ai tamagotchi vivi
+   * Stampa la nuova situazione
+   * 
+   * @param quanteCarezze	numero di carezze da somministrare
+   */
   
   public void daiCarezze (int quanteCarezze)
   {

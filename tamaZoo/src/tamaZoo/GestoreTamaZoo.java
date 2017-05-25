@@ -1,10 +1,24 @@
 package tamaZoo;
 import mylib.*;
 
+/**
+ * La classe GestoreTamaZoo costituisce il main del progetto,
+ * all'interno del quale appare un menu della classe utilita MyMenu
+ * che mostra all'utente le azioni che può eseguire.
+ * Si base sulla molteplicità di tamagotchi che possono presentarsi in 3 specie diverse:
+ * ingordo, triste o normale, che risponderanno agli stimoli in modi diversi.
+ * 
+ * @author Ghidini Fabio
+ * @author Mitelli Federico
+ *
+ */
 public class GestoreTamaZoo 
 {
 
-	// QUI SERVIRANNO UN PO' DI COSTANTI DI VARIO TIPO	
+	/**
+	 * Costanti di vario tipo e vari attributi necessari alla creazione del menu a scelta
+	 */
+	
 	private final static String BENVENUTO="Benvenuto nel mondo dei Tamagotchi!";
 	private final static String RICHIEDI_NUMERO="Inserisci il numero di Tamagotchi che vuoi creare:";
 	private final static String PREMESSA_INSERIMENTO="Inserimento del Tamagotchi numero ";
@@ -31,27 +45,41 @@ public class GestoreTamaZoo
 	private final static String TAMA_TRISTE="triste";
 	private final static String TAMA_GORDO="ingordo";
 	
-	// DEFINIRE UN ATTRIBUTO static DI TIPO TamaZoo
+	/**
+	 * @link zoo	attributo static di tipo TamaZoo
+	 */
+	
 	private static TamaZoo zoo=new TamaZoo();
 		
+	/**
+	 * metodo Main nel quale verranno effettuate richieste all'utente,
+	 * in base alle quali verrà gestito lo zoo di tamagotchi
+	 * @param args
+	 */
 	public static void main(String[] args) 
 	{
 		System.out.println(BENVENUTO);
 
 		int numeroTamagotchi = InputDati.leggiInteroPositivo(RICHIEDI_NUMERO); // richiedere il numero all'utente
 		
+		/**
+		 * Crea ad ogni iterazione un nuovo tamagotchi su richiesta dell'utente
+		 * e inserisce il nuovo tamagotchi all'interno dello zoo.
+		 */
 		for (int i =1; i<=numeroTamagotchi; i++)
 		{
-			// creare ad ogni iterazione un nuovo Tamagotchi (usando l'apposito metodo)
-			// e inserirlo nello zoo (usando l'apposito metodo della classe TamaZoo)
 			System.out.println(PREMESSA_INSERIMENTO + i);
 			Tamagotchi nuovo=creaTamagotchi();
 			zoo.inserisci(nuovo);
 		}
 		
-		MyMenu principale= new MyMenu(SCELTA,VOCI);// creare un menu con le scelte a disposizione dell'utente
+		/**
+		 * Viene istanziato un oggetto della classe MyMenu che crea un menu a scelta multipla.
+		 */
 		
-    boolean fine = false;
+		MyMenu principale= new MyMenu(SCELTA,VOCI);
+		
+		boolean fine = false;
 		
 		do 
 		{
@@ -59,9 +87,12 @@ public class GestoreTamaZoo
 			
 	     switch ( voceSelezionata ) 
 	     {
-			   // i casi da gestire sono la somministrazione 
-				 // di biscotti e carezze. In entrambi i casi si estrae un numero casuale e 
-				 // si invoca l'apposito metodo per la somministrazione nella classe TamaZoo
+			    /**
+			     * i casi da gestire sono la somministrazione  di biscotti e carezze. 
+			     * In entrambi i casi si estrae un numero casuale e si
+			     * invoca l'apposito metodo per la somministrazione nella classe TamaZoo
+			     */
+
 	      case 1:
 	    	 int numCarezze=NumeriCasuali.estraiIntero(MIN_CAREZZE, MAX_CAREZZE);
 	    	 System.out.printf(MSG_CAREZZE,numCarezze);
@@ -80,15 +111,17 @@ public class GestoreTamaZoo
 	    	 break;
 	    	 
 	      default:
-				   // MESSAGGIO DI ERRORE
 	    	 System.out.println(ERRORE);
 	    	 break;
 	    	 
-	     }//switch
+	     }
 		 
 	     
-	     // controllare se nello zoo c'e' almeno un Tamagotchi vivo
-			// in caso contrario bisogna terminare il programma
+	     /**
+	      * controllare se nello zoo c'e' almeno un Tamagotchi vivo
+	      * in caso contrario bisogna terminare il programma
+	      */
+	     
 	     	if(!zoo.ciSonoVivi())
 	    	 {
 	    		 System.out.println(TUTTI_MORTI);
@@ -100,15 +133,24 @@ public class GestoreTamaZoo
 		
 
 	}
-
+	
+	/**
+	 * Crea un nuovo tamagotchi con:
+	 * @link nome 		nome digitato dell'utente
+	 * @link specie		tipologia casuale del tamagotchi
+	 * @link affetto	grado di affetto casuale
+	 * @link sazieta	grado di sazieta casuale
+	 * @return nuovo (Tamagotchi)	ritorna il nuovo tamagotchi
+	 */
+	
 	public static Tamagotchi creaTamagotchi()
 	{
 		Tamagotchi nuovo=null;
-		String nome = InputDati.leggiStringaNonVuota(INSER_NOME);// chiedere il nome all'utente
+		String nome = InputDati.leggiStringaNonVuota(INSER_NOME);
 		int specie=NumeriCasuali.estraiIntero(1, NUM_SPECIE);
-		int affetto = NumeriCasuali.estraiIntero(0,Tamagotchi.MAX_AFFETTO);// estrarre a caso il valore iniziale di affetto 
-		int sazieta = NumeriCasuali.estraiIntero(0,Tamagotchi.MAX_SAZIETA);// estrarre a caso il valore iniziale di sazieta'
-		// restituire un nuovo Tamagotchi
+		int affetto = NumeriCasuali.estraiIntero(0,Tamagotchi.MAX_AFFETTO); 
+		int sazieta = NumeriCasuali.estraiIntero(0,Tamagotchi.MAX_SAZIETA);
+
 		switch(specie)
 		{
 		case BASE: 

@@ -66,6 +66,7 @@ public class ServizioFile
 			}
 		 catch (IOException excScrittura)
 			{
+			 excScrittura.printStackTrace();
 			 System.out.println(MSG_NO_SCRITTURA + f.getName() );
 			}
 		 
@@ -79,6 +80,7 @@ public class ServizioFile
 				  }
 				 catch (IOException excChiusura)
 					{
+					 
 			 			System.out.println(MSG_NO_CHIUSURA + f.getName() );
 					}
 				}

@@ -1,6 +1,15 @@
 package tamaZoo;
 
-// QUESTA CLASSE Tamagotchi e' la stessa usata per l'esercitazione precedente
+/**
+ * La classe Tamagotchi descrive un oggetto di tipo Tamagotchi , 
+ * un entità software che Ë in grado di recepire stimoli esterni ,
+ * i quali determinano la sua sopravvivenza e il suo grado di benessere .
+ * La classe modifica questi valori in base agli input dell'utente e
+ * stabilisce se il tamagotchi Ë felice , triste o morto.
+ * 
+ * @author Ghidini Fabio
+ * @author Mitelli Federico
+ */
 
 public class Tamagotchi {
 	
@@ -19,12 +28,27 @@ public class Tamagotchi {
 	private final static String MESS_DEAD = "\nAttenzione sono violate le condizioni per la mia sopravvivenza! Addio!";
 	private final static String MESS_SAD = "\nAttenzione sono infelice!";
 	
+	/**
+	 * Attributi :
+	 * @link nome				nome del tamagotchi 	
+	 * @link gradoAffettivo		livello di soddisfazione del tamagotchi
+	 * @link gradoSazieta		livello di saziet· del tamagotchi
+	 * @link nomeTipo			nome della specie	
+	 */
 	
     private String nome;
 	private double gradoAffettivo;
 	private double gradoSazieta;
 	private String nomeTipo;
 	
+	/**
+	 * Inizializza i valori iniziali degli attributi 
+	 * 
+	 * @param nome 				nome del tamagotchi
+	 * @param gradoAffettivo	grado iniziale di soddisfazione
+	 * @param gradoSazieta		grado iniziale di sazieta
+	 * @param nomeTipo			nome della specie
+	 */
 	public Tamagotchi (String nome, int gradoAffettivo, int gradoSazieta, String nomeTipo)
 	{
 		this.nome=nome;
@@ -62,11 +86,24 @@ public class Tamagotchi {
 		gradoSazieta=_gradoSazieta;
 	}
 	
+	/**
+	 *Imposta il nuovo valore del gradoAffettivo
+	 *Imposta il nuovo valore del gradoSazieta
+	 * 
+	 * @param numCarezze numero di carezze ricevute
+	 */
 	public void riceviCarezze(int numCarezze)
 	{
 		gradoAffettivo=Math.min(gradoAffettivo+numCarezze,MAX_AFFETTO);
 		gradoSazieta = Math.max(0, gradoSazieta - numCarezze/FATTORE_CAREZZE);
 	}
+	
+	/**
+	 *Imposta il nuovo valore del gradoAffettivo
+	 *Imposta il nuovo valore del gradoSazieta
+	 *
+	 * @param numBiscotti numero di biscotti ricevuti
+	 */
 	
 	public void riceviBiscotti(int numBiscotti)
 	{
@@ -77,16 +114,37 @@ public class Tamagotchi {
 		gradoAffettivo = Math.max(0, gradoAffettivo - numBiscotti/FATTORE_BISCOTTI);
 	}
 	
+	/**
+	 * Effettua un controllo dello stato vitale del tamaGordo.
+	 * 
+	 * @return false (boolean) se è ancora vivo
+	 * @return true (boolean) se è morto
+	 */
+	
 	public boolean sonoMorto ()
 	{
 		return gradoAffettivo == 0 || gradoSazieta == 0 || gradoSazieta == MAX_SAZIETA; 
 	}
+	
+	/**
+	 * Effettua un controllo dello stato emozionale del tamaGordo.
+	 * 
+	 * @return false (boolean) se è felice
+	 * @return true (boolean) se è triste
+	 */
 	
 	public boolean sonoTriste ()
 	{
 		return gradoAffettivo < SOGLIA_AFFETTO_BASSO || gradoSazieta < SOGLIA_SAZIETA_BASSA || gradoSazieta > SOGLIA_SAZIETA_ALTA; 
 	}
 	
+	/**
+	 * Ritorna una stringa con la descrizione dello stato del tamagotchi,
+	 * seguita da un messaggio che esprime se è morto o vivo
+	 * e, in caso, se è triste o felice.
+	 * 
+	 * @return msg (String) Stringa dello stato del tamagotchi
+	 */
 	public String toString()
 	{
 		StringBuffer msg = new StringBuffer();

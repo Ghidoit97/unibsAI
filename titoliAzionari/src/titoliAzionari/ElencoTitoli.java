@@ -1,8 +1,9 @@
 package titoliAzionari;
 
 import java.util.Vector;
+import java.io.Serializable;
 
-public class ElencoTitoli {
+public class ElencoTitoli implements Serializable{
 	
 	private Vector<Titolo> elenco;
 	
