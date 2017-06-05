@@ -17,7 +17,7 @@ public class Portafoglio implements Serializable{
 		lotto=new Vector<Lotto>();
 	}
 	
-	public void inserisci(Lotto daInserire)
+	public void addLotto(Lotto daInserire)
 	{
 		lotto.add(daInserire);
 	}
@@ -36,12 +36,12 @@ public class Portafoglio implements Serializable{
 		elenco.variazione();
 	}
 	
-	public double valoreTotale()
+	public double valore()
 	{
 		double value=0;
 		for(int i=0;i<lotto.size();i++)
 		{
-			value=value+lotto.get(i).getValore();
+			value=value+lotto.get(i).valore();
 		}
 		return value;
 	}

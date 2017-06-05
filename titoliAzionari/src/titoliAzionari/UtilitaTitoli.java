@@ -40,7 +40,7 @@ public class UtilitaTitoli implements Serializable{
 		 {
 			 Titolo t=listino.getTitolo(i);
 			 int numAzioni=InputDati.leggiInteroConMinimo(String.format(MSG_NUMERO_AZIONI,t.toString()), 1);
-			 wallet.inserisci(new Lotto(t,numAzioni));
+			 wallet.addLotto(new Lotto(t,numAzioni));
 		 }
 		 return wallet;
 	 }

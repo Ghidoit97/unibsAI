@@ -19,7 +19,7 @@ public class Titolo implements Serializable{
 		this.valore=valore;
 	}
 	
-	public double getValore()
+	public double getPrezzo()
 	{
 		return valore;
 	}
@@ -29,7 +29,7 @@ public class Titolo implements Serializable{
 		return String.format(DESCRIZIONE,nome,valore);
 	}
 	
-	public void variazione()
+	public void variazGiornaliera()
 	{
 		double varia=NumeriCasuali.estraiDouble(MAX_RIBASSO, MAX_RIALZO);
 		valore=valore+(valore*varia);

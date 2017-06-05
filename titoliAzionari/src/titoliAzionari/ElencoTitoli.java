@@ -39,7 +39,7 @@ public class ElencoTitoli implements Serializable{
 	{
 		for(Titolo lista: elenco)
 		{
-			lista.variazione();
+			lista.variazGiornaliera();
 		}
 	}
 }

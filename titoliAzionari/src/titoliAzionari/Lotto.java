@@ -15,9 +15,9 @@ public class Lotto implements Serializable{
 		this.quantita=quantita;
 	}
 	
-	public double getValore()
+	public double valore()
 	{
-		return quantita*riferimento.getValore();
+		return quantita*riferimento.getPrezzo();
 	}
 	
 	public String toString()
